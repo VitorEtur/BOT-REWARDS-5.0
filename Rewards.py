@@ -6,10 +6,13 @@ import keyboard
 import random
 
 py = pyautogui
-numero_aleatorio = random.randint(1, 99999999)
+qtpc = 37
+qtcel = 20
+pyautogui.PAUSE = 0.05
+numero_aleatorio = random.randint(1, 999999999)
 
 def confirm():
-    resposta = py.confirm(text='Start Bot --- Version 5?', buttons=['Yes', 'No'])
+    resposta = py.confirm(text='Start Bot --- Version 5.5?', buttons=['Yes', 'No'])
     if resposta == 'Yes':
         return True
     else:
@@ -35,8 +38,8 @@ if confirm():
 
 
     def x(): ## Função x inicia o looping com 37 repetições
-        for _ in range(37): ## Repete o processo 37 vezes
-            numero_aleatorio = random.randint(1, 99999999) ## Definindo que numero_aleatorio pode ser de 1 a 9999999
+        for _ in range(qtpc): ## Repete o processo 37 vezes
+            numero_aleatorio = random.randint(1, 999999999) ## Definindo que numero_aleatorio pode ser de 1 a 9999999
             pyautogui.typewrite(str(numero_aleatorio)) ## Digita um número aleatório
             py.press('enter') ## Confirma com enter
             py.press('f4') ## F4 - atalho para pesquisar no navegador
@@ -51,12 +54,13 @@ if confirm():
         py.press('enter') ## Confirma com enter
 
         ## --- Começa o processo mobile de repetições ---
-        for _ in range(20): ## Repete o processo 20 vezes
-            numero_aleatorio = random.randint(1, 99999999) ## Definindo que numero_aleatorio pode ser de 1 a 9999999
+        for _ in range(qtcel): ## Repete o processo 20 vezes
+            numero_aleatorio = random.randint(1, 999999999) ## Definindo que numero_aleatorio pode ser de 1 a 9999999
             py.press('f4') ## F4 - atalho para pesquisar no navegador
             pyautogui.typewrite(str(numero_aleatorio)) ## Digita um número aleatório
             py.press('enter') ## Confirma com enter
         
+        py.alert('-----BOT FINALIZADO-----')
         os._exit(0) ## Encerra o bot
 
 
